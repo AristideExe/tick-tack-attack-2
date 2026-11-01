@@ -351,6 +351,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98026ee2271b94e05899f0645385f493, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerController
+  speed: 5
 --- !u!1 &919174654
 GameObject:
   m_ObjectHideFlags: 0
@@ -438,7 +439,7 @@ Transform:
   m_GameObject: {fileID: 919174654}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.72, y: 2.269, z: -4}
+  m_LocalPosition: {x: 1.72, y: 2.069, z: -3}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -512,7 +513,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1
   IgnoreTag: Player
-  AimDistance: 200
+  AimDistance: 100
   NoiseCancellation: 1
 --- !u!114 &1498867091
 MonoBehaviour:
@@ -541,9 +542,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Unity.Cinemachine::Unity.Cinemachine.CinemachineThirdPersonFollow
   Damping: {x: 0.1, y: 0.5, z: 0.3}
   ShoulderOffset: {x: 0.8, y: -0.4, z: 0}
-  VerticalArmLength: 1.2
+  VerticalArmLength: 1
   CameraSide: 1
-  CameraDistance: 4
+  CameraDistance: 3
   AvoidObstacles:
     Enabled: 1
     CollisionFilter:
@@ -605,7 +606,7 @@ Transform:
   m_GameObject: {fileID: 1498867089}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.72, y: 2.269, z: -4}
+  m_LocalPosition: {x: 1.72, y: 2.069, z: -3}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
