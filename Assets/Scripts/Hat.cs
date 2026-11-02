@@ -8,6 +8,7 @@ public class Hat : MonoBehaviour
 
     private void Start()
     {
+        if (hatScriptableObject == null) return;
         GameObject hat = Instantiate(hatScriptableObject.prefab, transform.position, transform.rotation);
         hat.transform.localScale = transform.localScale;
         hat.transform.SetParent(transform, true);
