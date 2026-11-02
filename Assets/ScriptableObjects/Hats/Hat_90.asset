@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d5fc8655d3c01770b4743e847f1964c, type: 3}
+  m_Name: Hat_90
+  m_EditorClassIdentifier: Assembly-CSharp::HatScriptableObject
+  id: 90
+  sprite: {fileID: 21300000, guid: ea79da3448b8d8049af7e10b4e89e182, type: 3}
+  prefab: {fileID: 208978652985389317, guid: fd203322a08d0bf4598a6a6cbf9c14f0, type: 3}

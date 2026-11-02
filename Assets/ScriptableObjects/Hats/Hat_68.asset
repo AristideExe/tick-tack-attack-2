@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d5fc8655d3c01770b4743e847f1964c, type: 3}
   m_Name: Hat_68
   m_EditorClassIdentifier: Assembly-CSharp::Hat
-  id: 5
+  id: 68
   sprite: {fileID: 21300000, guid: 5d2d550a20b1d974ba3552fa130ab5fc, type: 3}
   prefab: {fileID: 8706765279277213323, guid: b73af43b473594c4da60356f55fb559c, type: 3}
