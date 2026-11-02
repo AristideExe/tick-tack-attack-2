@@ -4,12 +4,23 @@ using UnityEngine;
 public class Hat : MonoBehaviour
 {
     [Header("References")]
-    [SerializeField] private HatScriptableObject hatScriptableObject;
+    [SerializeField] private HatsScriptableObject hatList;
+    [SerializeField] private HatScriptableObject hatData;
+    
+    [Header("Settings")]
+    [SerializeField] private bool randomHat;
+    [SerializeField] private float chanceOfHat;
+    
 
     private void Start()
     {
-        if (hatScriptableObject == null) return;
-        GameObject hat = Instantiate(hatScriptableObject.prefab, transform.position, transform.rotation);
+        if (randomHat && UnityEngine.Random.value * 100 < chanceOfHat)
+        {
+            hatData = hatList.hats[UnityEngine.Random.Range(0, hatList.hats.Length)];
+        }
+        if (hatData == null) return;
+        
+        GameObject hat = Instantiate(hatData.prefab, transform.position, transform.rotation);
         hat.transform.localScale = transform.localScale;
         hat.transform.SetParent(transform, true);
     }
