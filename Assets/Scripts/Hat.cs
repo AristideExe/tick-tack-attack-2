@@ -21,6 +21,7 @@ public class Hat : MonoBehaviour
         if (hatData == null) return;
         
         GameObject hat = Instantiate(hatData.prefab, transform.position, transform.rotation);
+        hat.layer = gameObject.layer;
         hat.transform.localScale = transform.localScale;
         hat.transform.SetParent(transform, true);
     }
