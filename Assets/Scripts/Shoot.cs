@@ -21,10 +21,21 @@ public class Shoot : MonoBehaviour
     private void Update()
     {
         _delay -= Time.deltaTime;
-        if (_fire.inProgress && _delay <= 0f)
+        if (weaponData.shootingDelay == ShootingDelay.Single)
         {
-            Fire();
-            _delay = weaponData.delay;
+            if (_fire.WasPressedThisFrame() && _delay <= 0f)
+            {
+                Fire();
+                _delay = weaponData.delay;
+            }
+        }
+        else if (weaponData.shootingDelay == ShootingDelay.Auto)
+        {
+            if (_fire.inProgress && _delay <= 0f)
+            {
+                Fire();
+                _delay = weaponData.delay;
+            }
         }
     }
 
