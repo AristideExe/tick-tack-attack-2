@@ -754,7 +754,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Shoot
   weaponSocket: {fileID: 856438485}
-  weaponData: {fileID: 11400000, guid: 6b31da6e3f2f3656d940ac8e4d8c6300, type: 2}
+  weaponData: {fileID: 11400000, guid: 92d2379fcc09d4c9795fe462304ea271, type: 2}
 --- !u!1 &856438484
 GameObject:
   m_ObjectHideFlags: 0

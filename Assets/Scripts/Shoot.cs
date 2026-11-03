@@ -2,6 +2,7 @@ using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
+[RequireComponent(typeof(ThirdPersonCamera), typeof(CameraAim))]
 public class Shoot : MonoBehaviour
 {
     [Header("References")]
@@ -10,12 +11,16 @@ public class Shoot : MonoBehaviour
     
     private InputAction _fire;
     private Camera _camera;
+    private ThirdPersonCamera _thirdPersonCamera;
+    private CameraAim _cameraAim;
     private float _delay;
 
     private void Awake()
     {
         _fire = InputSystem.actions.FindAction("Attack");
         _camera = Camera.main;
+        _thirdPersonCamera = GetComponent<ThirdPersonCamera>();
+        _cameraAim = GetComponent<CameraAim>();
     }
 
     private void Update()
@@ -50,5 +55,7 @@ public class Shoot : MonoBehaviour
                 health.TakeDamage(weaponData.damage, gameObject);
             }
         }
+        if (_cameraAim.IsAiming) _thirdPersonCamera.AddRecoil(weaponData.horizontalRecoil / 2, weaponData.verticalRecoil / 2);
+        else _thirdPersonCamera.AddRecoil(weaponData.horizontalRecoil, weaponData.verticalRecoil);
     }
 }

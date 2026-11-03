@@ -12,13 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1b5badc3ca855df6a12807be689d8c6, type: 3}
   m_Name: Rifle
   m_EditorClassIdentifier: Assembly-CSharp::WeaponScriptableObject
-  damage: 10
-  delay: 1
-  shootingDelay: 0
+  damage: 2
+  delay: 0.1
+  shootingDelay: 1
   shootingType: 0
-  magazineSize: 5
+  magazineSize: 30
   burstCount: 0
   spreadCount: 0
   spreadAngle: 0
+  horizontalRecoil: 3
+  verticalRecoil: 2
   prefab: {fileID: 0}
   sprite: {fileID: 0}

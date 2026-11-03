@@ -11,7 +11,8 @@ public class WeaponScriptableObject : ScriptableObject
     public int burstCount;
     public int spreadCount;
     public float spreadAngle;
-    public float recoil;
+    public float horizontalRecoil;
+    public float verticalRecoil;
     public GameObject prefab;
     public Sprite sprite;
 }
