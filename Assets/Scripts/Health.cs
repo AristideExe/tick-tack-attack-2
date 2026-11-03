@@ -23,7 +23,7 @@ public class Health : MonoBehaviour
         _health -= damage;
         if (floatingDamageUIPrefab)
         {
-            var floatingDamageUI = Instantiate(floatingDamageUIPrefab, transform.position, Quaternion.identity);
+            GameObject floatingDamageUI = Instantiate(floatingDamageUIPrefab, transform.position, Quaternion.identity);
             floatingDamageUI.GetComponent<FloatingDamageUI>().SetDamage(damage);
             floatingDamageUI.SetActive(true);
         }
