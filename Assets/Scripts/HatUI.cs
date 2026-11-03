@@ -25,6 +25,8 @@ public class HatUI : MonoBehaviour
     public void SetHat()
     {
         PlayerCustomization.Instance.SetHat(HatData);
+        GameObject player = GameObject.FindGameObjectWithTag("Player");
+        player.GetComponentInChildren<Hat>().SetHat(HatData);
     }
 
     public void Update()

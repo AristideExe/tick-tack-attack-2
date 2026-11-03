@@ -10,23 +10,30 @@ public class Hat : MonoBehaviour
     [SerializeField] private bool randomHat;
     [SerializeField] private float chanceOfHat;
     
-    private HatScriptableObject _hatData;
-
+    private GameObject hat;
+    
     private void Start()
     {
+        HatScriptableObject hatData;
         if (randomHat && UnityEngine.Random.value * 100 < chanceOfHat)
         {
-            _hatData = hatList.hats[UnityEngine.Random.Range(0, hatList.hats.Length)];
+            hatData = hatList.hats[UnityEngine.Random.Range(0, hatList.hats.Length)];
         }
         else
         {
-            _hatData = PlayerCustomization.Instance.HatData;
+            hatData = PlayerCustomization.Instance.HatData;
         }
-        if (_hatData == null) return;
-        
-        GameObject hat = Instantiate(_hatData.prefab, transform.position, transform.rotation);
-        hat.layer = gameObject.layer;
-        hat.transform.localScale = transform.localScale;
-        hat.transform.SetParent(transform, true);
+        if (hatData == null) return;
+        SetHat(hatData);
+    }
+
+    public void SetHat(HatScriptableObject hatData)
+    {
+        if (hat != null) Destroy(hat);
+        GameObject instance = Instantiate(hatData.prefab, transform.position, transform.rotation);
+        instance.layer = gameObject.layer;
+        instance.transform.localScale = transform.localScale;
+        instance.transform.SetParent(transform, true);
+        hat = instance;
     }
 }
