@@ -8,8 +8,7 @@ public class HatUI : MonoBehaviour
     [Header("References")]
     [SerializeField] private Image hatImage;
     
-    [Header("Settings")]
-    [SerializeField] private HatScriptableObject hatData;
+    public HatScriptableObject HatData;
     
     private Image _buttonImage;
 
@@ -20,17 +19,17 @@ public class HatUI : MonoBehaviour
 
     private void Start()
     {
-        hatImage.sprite = hatData.sprite;
+        hatImage.sprite = HatData.sprite;
     }
 
     public void SetHat()
     {
-        PlayerCustomization.Instance.SetHat(hatData);
+        PlayerCustomization.Instance.SetHat(HatData);
     }
 
     public void Update()
     {
-        if (PlayerCustomization.Instance.HatData == hatData)
+        if (PlayerCustomization.Instance.HatData == HatData)
         {
             _buttonImage.color = Color.dodgerBlue;
         }
