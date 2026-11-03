@@ -1,6 +1,8 @@
+using System;
 using UnityEngine;
 using UnityEngine.UI;
 
+[RequireComponent(typeof(Image))]
 public class HatUI : MonoBehaviour
 {
     [Header("References")]
@@ -9,6 +11,13 @@ public class HatUI : MonoBehaviour
     [Header("Settings")]
     [SerializeField] private HatScriptableObject hatData;
     
+    private Image _buttonImage;
+
+    private void Awake()
+    {
+        _buttonImage = GetComponent<Image>();
+    }
+
     private void Start()
     {
         hatImage.sprite = hatData.sprite;
@@ -17,5 +26,17 @@ public class HatUI : MonoBehaviour
     public void SetHat()
     {
         PlayerCustomization.Instance.SetHat(hatData);
+    }
+
+    public void Update()
+    {
+        if (PlayerCustomization.Instance.HatData == hatData)
+        {
+            _buttonImage.color = Color.dodgerBlue;
+        }
+        else
+        {
+            _buttonImage.color = Color.white;
+        }
     }
 }
