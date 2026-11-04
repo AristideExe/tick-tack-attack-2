@@ -12,16 +12,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1b5badc3ca855df6a12807be689d8c6, type: 3}
   m_Name: Famas
   m_EditorClassIdentifier: Assembly-CSharp::WeaponScriptableObject
-  damage: 2
+  damage: 5
   delay: 0.4
+  reloadDelay: 1.5
   shootingDelay: 0
   shootingType: 1
   initialAmmo: 100
-  magazineSize: 28
+  magazineSize: 25
   burstCount: 0
   spreadCount: 0
   spreadAngle: 0
   horizontalRecoil: 0
   verticalRecoil: 4
-  prefab: {fileID: 0}
+  prefab: {fileID: 1887528345966656, guid: 887db1feb9a697b45b38c3b9a0538208, type: 3}
   sprite: {fileID: 0}

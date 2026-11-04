@@ -22,6 +22,7 @@ namespace Weapons
         private Camera _camera;
         private ThirdPersonCamera _thirdPersonCamera;
         private CameraAim _cameraAim;
+        private GameObject _weapon;
         private float _delay;
         private int _ammo;
         private int _magazine;
@@ -39,11 +40,21 @@ namespace Weapons
         {
             _ammo = weaponData.initialAmmo;
             _magazine = weaponData.magazineSize;
+            SpawnWeaponModel();
         }
 
+        private void SpawnWeaponModel()
+        {
+            _weapon = Instantiate(weaponData.prefab, weaponSocket.position, weaponSocket.rotation, weaponSocket);
+            _weapon.transform.parent = weaponSocket.transform;
+            _weapon.layer = gameObject.layer;
+        }
+        
         private void Update()
         {
             _delay -= Time.deltaTime;
+            weaponSocket.transform.localRotation = Quaternion.Euler(- _thirdPersonCamera.Pitch, 180f, 0f);
+            
             if (weaponData.shootingDelay == ShootingDelay.Single)
             {
                 if (_fire.WasPressedThisFrame() && _delay <= 0f)

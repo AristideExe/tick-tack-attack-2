@@ -7,6 +7,7 @@ namespace Weapons
     {
         public float damage;
         public float delay;
+        public float reloadDelay;
         public ShootingDelay shootingDelay;
         public ShootingType shootingType;
         public int initialAmmo;

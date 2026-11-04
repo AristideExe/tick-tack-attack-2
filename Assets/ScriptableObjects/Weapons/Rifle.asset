@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::WeaponScriptableObject
   damage: 2
   delay: 0.1
+  reloadDelay: 1.5
   shootingDelay: 1
   shootingType: 0
   initialAmmo: 100
@@ -23,5 +24,5 @@ MonoBehaviour:
   spreadAngle: 0
   horizontalRecoil: 3
   verticalRecoil: 2
-  prefab: {fileID: 0}
+  prefab: {fileID: 1889367776384038, guid: aaf2dee8227d3a447ac6dbc56d5666cd, type: 3}
   sprite: {fileID: 0}

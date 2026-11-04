@@ -10,10 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e1b5badc3ca855df6a12807be689d8c6, type: 3}
-  m_Name: Revolver
+  m_Name: Deagle
   m_EditorClassIdentifier: Assembly-CSharp::WeaponScriptableObject
   damage: 10
-  delay: 1
+  delay: 0.5
+  reloadDelay: 3
   shootingDelay: 0
   shootingType: 0
   initialAmmo: 30
@@ -21,7 +22,7 @@ MonoBehaviour:
   burstCount: 0
   spreadCount: 0
   spreadAngle: 0
-  horizontalRecoil: 0
-  verticalRecoil: 0
-  prefab: {fileID: 0}
+  horizontalRecoil: 1
+  verticalRecoil: 5
+  prefab: {fileID: 1491317940165468, guid: 566d96333dd309445943b52901918262, type: 3}
   sprite: {fileID: 0}

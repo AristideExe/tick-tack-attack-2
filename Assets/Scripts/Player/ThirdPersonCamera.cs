@@ -14,6 +14,8 @@ namespace Player
         [SerializeField] float minPitch = -40f;
         [SerializeField] float maxPitch = 70f;
 
+        public float Pitch => pitch;
+        
         private InputAction _look;
         private float pitch;
 
