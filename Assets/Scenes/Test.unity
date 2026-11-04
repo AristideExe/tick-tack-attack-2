@@ -719,7 +719,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Shoot
   weaponSocket: {fileID: 856438485}
-  weaponData: {fileID: 11400000, guid: 92d2379fcc09d4c9795fe462304ea271, type: 2}
+  weaponData: {fileID: 11400000, guid: fb1e37eff127a68cdb3cbff21d93093b, type: 2}
 --- !u!4 &856438485 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3552758956821875687, guid: 0adb1d912ba2bddb285853b1bdb6f50a, type: 3}

@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using Character;
 using Player;
 using UnityEngine;
@@ -47,7 +48,7 @@ namespace Weapons
             {
                 if (_fire.WasPressedThisFrame() && _delay <= 0f)
                 {
-                    Fire();
+                    StartCoroutine(Shoot());
                     _delay = weaponData.delay;
                 }
             }
@@ -55,7 +56,7 @@ namespace Weapons
             {
                 if (_fire.inProgress && _delay <= 0f)
                 {
-                    Fire();
+                    StartCoroutine(Shoot());
                     _delay = weaponData.delay;
                 }
             }
@@ -63,6 +64,22 @@ namespace Weapons
             if (_reload.WasPressedThisFrame() && _magazine < weaponData.magazineSize)
             {
                 Reload();
+            }
+        }
+
+        private IEnumerator Shoot()
+        {
+            if (weaponData.shootingType == ShootingType.Burst)
+            {
+                for (int i = 0; i < 3; i++)
+                {
+                    Fire();
+                    yield return new WaitForSeconds(0.05f);
+                }
+            }
+            else
+            {
+                Fire();
             }
         }
 
