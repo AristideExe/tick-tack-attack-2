@@ -9,6 +9,7 @@ namespace Weapons
         public float delay;
         public ShootingDelay shootingDelay;
         public ShootingType shootingType;
+        public int initialAmmo;
         public int magazineSize;
         public int burstCount;
         public int spreadCount;

@@ -16,9 +16,12 @@ MonoBehaviour:
   delay: 1
   shootingDelay: 0
   shootingType: 0
+  initialAmmo: 30
   magazineSize: 5
   burstCount: 0
   spreadCount: 0
   spreadAngle: 0
+  horizontalRecoil: 0
+  verticalRecoil: 0
   prefab: {fileID: 0}
   sprite: {fileID: 0}

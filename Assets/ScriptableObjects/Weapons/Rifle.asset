@@ -16,6 +16,7 @@ MonoBehaviour:
   delay: 0.1
   shootingDelay: 1
   shootingType: 0
+  initialAmmo: 225
   magazineSize: 30
   burstCount: 0
   spreadCount: 0
