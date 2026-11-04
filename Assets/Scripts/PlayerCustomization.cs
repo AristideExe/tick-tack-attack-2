@@ -8,7 +8,7 @@ public class PlayerCustomization : MonoBehaviour
     [SerializeField] private HatScriptableObject hatData;
     public HatScriptableObject HatData => hatData;
 
-    private void Awake()
+    private void Start()
     {
         if (_instance != null && _instance != this)
         {

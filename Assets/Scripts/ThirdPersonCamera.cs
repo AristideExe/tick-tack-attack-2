@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using Random = UnityEngine.Random;
@@ -9,7 +10,6 @@ public class ThirdPersonCamera : MonoBehaviour
     [SerializeField] Transform cameraTarget;
     
     [Header("Settings")]
-    [SerializeField] float sensitivity = 0.1f;       
     [SerializeField] float minPitch = -40f;
     [SerializeField] float maxPitch = 70f;
 
@@ -29,8 +29,14 @@ public class ThirdPersonCamera : MonoBehaviour
     private void Update()
     {
         Vector2 delta = _look.ReadValue<Vector2>();
-        transform.Rotate(0f, delta.x * sensitivity, 0f, Space.World);
-        pitch = Mathf.Clamp(pitch - delta.y * sensitivity, minPitch, maxPitch);
+        
+        bool isGamepad = _look.activeControl?.device is Gamepad;
+        PlayerSettings settings = PlayerSettings.Instance;
+        float sensitivityX = isGamepad ? settings.ControllerSensitivityX : settings.MouseSensitivityX / 10;
+        float sensitivityY = isGamepad ? settings.ControllerSensitivityY : settings.MouseSensitivityY / 10;
+        
+        transform.Rotate(0f, delta.x * sensitivityX, 0f, Space.World);
+        pitch = Mathf.Clamp(pitch - delta.y * sensitivityY, minPitch, maxPitch);
         cameraTarget.localRotation = Quaternion.Euler(pitch, 0f, 0f);
     }
     
