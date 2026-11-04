@@ -26,6 +26,7 @@ namespace Weapons
         private float _delay;
         private int _ammo;
         private int _magazine;
+        private bool _isReloading;
 
         private void Awake()
         {
@@ -53,17 +54,17 @@ namespace Weapons
         private void Update()
         {
             _delay -= Time.deltaTime;
-            weaponSocket.transform.localRotation = Quaternion.Euler(- _thirdPersonCamera.Pitch, 180f, 0f);
+            if (!_isReloading) weaponSocket.transform.localRotation = Quaternion.Euler(- _thirdPersonCamera.Pitch, 180f, 0f);
             
             if (weaponData.shootingDelay == ShootingDelay.Single)
             {
-                if (_fire.WasPressedThisFrame() && _delay <= 0f)
+                if (_fire.WasPressedThisFrame() && _delay <= 0f && !_isReloading)
                 {
                     StartCoroutine(Shoot());
                     _delay = weaponData.delay;
                 }
             }
-            else if (weaponData.shootingDelay == ShootingDelay.Auto)
+            else if (weaponData.shootingDelay == ShootingDelay.Auto && !_isReloading)
             {
                 if (_fire.inProgress && _delay <= 0f)
                 {
@@ -72,9 +73,10 @@ namespace Weapons
                 }
             }
             
-            if (_reload.WasPressedThisFrame() && _magazine < weaponData.magazineSize)
+            if (_reload.WasPressedThisFrame() && _magazine < weaponData.magazineSize && !_isReloading)
             {
-                Reload();
+                StartCoroutine(Reload());
+                StartCoroutine(ReloadAnimation());
             }
         }
 
@@ -114,11 +116,26 @@ namespace Weapons
             }
         }
 
-        private void Reload()
+        private IEnumerator Reload()
         {
+            _isReloading = true;
+            yield return new WaitForSeconds(weaponData.reloadDelay);
             int reloadSize = Mathf.Clamp(weaponData.magazineSize - _magazine, 0, _ammo);
             _ammo -= reloadSize;
             _magazine += reloadSize;
+            _isReloading = false;
+        }
+
+        private IEnumerator ReloadAnimation()
+        {
+            float pitch = weaponSocket.transform.rotation.eulerAngles.x;
+            while (_isReloading)
+            {
+                pitch += 5f;
+                weaponSocket.transform.localRotation = Quaternion.Euler(pitch, 180f, 0f);
+                Debug.Log(weaponSocket.transform.rotation.eulerAngles.x);
+                yield return null;
+            }
         }
     }
 }
