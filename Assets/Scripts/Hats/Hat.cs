@@ -9,22 +9,23 @@ namespace Hats
         [SerializeField] private HatsScriptableObject hatList;
     
         [Header("Settings")]
-        [SerializeField] private bool randomHat;
+        [SerializeField] private bool player; 
         [SerializeField] private float chanceOfHat;
     
         private GameObject hat;
     
         private void Start()
         {
-            HatScriptableObject hatData;
-            if (randomHat && UnityEngine.Random.value * 100 < chanceOfHat)
-            {
-                hatData = hatList.hats[UnityEngine.Random.Range(0, hatList.hats.Length)];
-            }
-            else
+            HatScriptableObject hatData = null;
+            if (player)
             {
                 hatData = PlayerCustomization.Instance.HatData;
             }
+            else if (Random.value * 100 < chanceOfHat)
+            {
+                hatData = hatList.hats[UnityEngine.Random.Range(0, hatList.hats.Length)];
+            }
+            
             if (hatData == null) return;
             SetHat(hatData);
         }

@@ -133,7 +133,6 @@ namespace Weapons
             {
                 pitch += 5f;
                 weaponSocket.transform.localRotation = Quaternion.Euler(pitch, 180f, 0f);
-                Debug.Log(weaponSocket.transform.rotation.eulerAngles.x);
                 yield return null;
             }
         }
