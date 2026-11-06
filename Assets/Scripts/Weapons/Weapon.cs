@@ -73,7 +73,7 @@ namespace Weapons
                 }
             }
             
-            if (_reload.WasPressedThisFrame() && _magazine < weaponData.magazineSize && !_isReloading)
+            if (_reload.WasPressedThisFrame() && _magazine < weaponData.magazineSize && _ammo > 0 && !_isReloading)
             {
                 StartCoroutine(Reload());
                 StartCoroutine(ReloadAnimation());
